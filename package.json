@@ -1,0 +1,47 @@
+{
+  "name": "ai-assistant-module",
+  "version": "1.0.0",
+  "description": "A minimal AI assistant module with task processing and interaction logging",
+  "main": "dist/index.js",
+  "scripts": {
+    "build": "tsc",
+    "start": "node dist/index.js",
+    "dev": "PORT=3000 ts-node src/index.ts",
+    "dev:watch": "PORT=3000 nodemon --exec ts-node src/index.ts",
+    "frontend": "cd frontend && npm start",
+    "frontend:build": "cd frontend && npm run build",
+    "frontend:install": "cd frontend && npm install",
+    "dev:full": "concurrently --kill-others --prefix \"[{name}]\" --names \"backend,frontend\" \"npm run dev\" \"npm run frontend\"",
+    "install:all": "npm install && npm run frontend:install",
+    "build:all": "npm run build && npm run frontend:build",
+    "start:dev": "./start-dev.sh",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": ["ai", "assistant", "microservice", "typescript", "express"],
+  "author": "Assessment Project",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.18.2",
+    "better-sqlite3": "^9.2.2",
+    "cors": "^2.8.5",
+    "helmet": "^7.1.0",
+    "swagger-ui-express": "^5.0.0",
+    "swagger-jsdoc": "^6.2.8",
+    "dotenv": "^16.3.1",
+    "openai": "^4.20.1",
+    "uuid": "^9.0.1"
+  },
+  "devDependencies": {
+    "@types/express": "^4.17.21",
+    "@types/cors": "^2.8.17",
+    "@types/swagger-ui-express": "^4.1.6",
+    "@types/swagger-jsdoc": "^6.0.4",
+    "@types/node": "^20.10.5",
+    "@types/uuid": "^9.0.7",
+    "@types/better-sqlite3": "^7.6.8",
+    "typescript": "^5.3.3",
+    "ts-node": "^10.9.2",
+    "nodemon": "^3.0.2",
+    "concurrently": "^8.2.2"
+  }
+}
