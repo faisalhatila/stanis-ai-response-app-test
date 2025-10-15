@@ -1,0 +1,114 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    font-family: 'Inter', system-ui, sans-serif;
+  }
+  
+  body {
+    @apply bg-gradient-to-br from-gray-50 via-blue-50 to-indigo-50 text-gray-900;
+    min-height: 100vh;
+  }
+}
+
+@layer components {
+  .btn-primary {
+    @apply bg-gradient-to-r from-primary-600 to-primary-700 hover:from-primary-700 hover:to-primary-800 text-white font-medium py-3 px-6 rounded-xl transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:ring-offset-2 shadow-lg hover:shadow-xl;
+  }
+  
+  .btn-secondary {
+    @apply bg-white hover:bg-gray-50 text-gray-700 font-medium py-3 px-6 rounded-xl transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-gray-500 focus:ring-offset-2 shadow-md hover:shadow-lg border border-gray-200;
+  }
+  
+  .input-field {
+    @apply w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-primary-500 focus:border-primary-500 transition-all duration-200 resize-none bg-white shadow-sm hover:shadow-md;
+  }
+  
+  .card {
+    @apply bg-white rounded-2xl shadow-lg border border-gray-100 p-6 hover:shadow-xl transition-all duration-200;
+  }
+  
+  .stat-card {
+    @apply bg-gradient-to-br from-white to-gray-50 rounded-2xl shadow-lg border border-gray-100 p-6 hover:shadow-xl transition-all duration-200;
+  }
+  
+  .message-bubble {
+    @apply max-w-3xl p-4 rounded-2xl;
+  }
+  
+  .user-message {
+    @apply bg-gradient-to-r from-blue-500 to-indigo-600 text-white ml-auto shadow-lg hover:shadow-xl transition-all duration-200;
+  }
+  
+  .ai-message {
+    @apply bg-white border border-gray-200 text-gray-800 shadow-md;
+  }
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  @apply bg-gray-100;
+}
+
+::-webkit-scrollbar-thumb {
+  @apply bg-gray-300 rounded-full;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  @apply bg-gray-400;
+}
+
+/* Typing animation */
+.typing-indicator {
+  @apply flex items-center space-x-1;
+}
+
+.typing-dot {
+  @apply w-2 h-2 bg-gray-400 rounded-full animate-bounce;
+}
+
+.typing-dot:nth-child(2) {
+  animation-delay: 0.1s;
+}
+
+.typing-dot:nth-child(3) {
+  animation-delay: 0.2s;
+}
+
+/* Response typing animation */
+.response-text {
+  @apply whitespace-pre-wrap;
+}
+
+.response-text.typing {
+  @apply border-r-2 border-primary-500 animate-pulse;
+}
+
+/* Sidebar transitions */
+.sidebar-enter {
+  transform: translateX(-100%);
+  opacity: 0;
+}
+
+.sidebar-enter-active {
+  transform: translateX(0);
+  opacity: 1;
+  transition: transform 300ms ease-in-out, opacity 300ms ease-in-out;
+}
+
+.sidebar-exit {
+  transform: translateX(0);
+  opacity: 1;
+}
+
+.sidebar-exit-active {
+  transform: translateX(-100%);
+  opacity: 0;
+  transition: transform 300ms ease-in-out, opacity 300ms ease-in-out;
+}
